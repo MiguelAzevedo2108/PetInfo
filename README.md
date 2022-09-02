@@ -1,6 +1,6 @@
-# petinfo
+# PetInfo
 
-A new Flutter project.
+The goal is to be able to store all your pet information in your pocket
 
 ## Getting Started
 
