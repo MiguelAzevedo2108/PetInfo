@@ -42,3 +42,20 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class CreatePetPage extends StatefulWidget {
+  //const CreatePetPage ({Key? key}) : super(key: key);
+
+  @override
+  State<CreatePetPage> createState() => _createPetPage();
+}
+
+class _createPetPage extends State<CreatePetPage> {
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.blueAccent,
+      ),
+    );
+  }
+}
