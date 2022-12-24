@@ -15,7 +15,7 @@ class _MyPetState extends State<MyPet>{
           title: Text("Pet Information"),
         ),
         body: Container(
-            color: Colors.green,
+            color: Colors.grey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const <Widget>[
