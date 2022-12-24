@@ -12,10 +12,17 @@ class _MyPetState extends State<MyPet>{
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+            leading: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              },
+              icon:Icon(Icons.arrow_back_ios),
+              //replace with our own icon data.
+            ),
           title: Text("Pet Information"),
         ),
         body: Container(
-            color: Colors.grey,
+            color: Colors.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const <Widget>[
@@ -24,12 +31,13 @@ class _MyPetState extends State<MyPet>{
                     style: TextStyle(
                       backgroundColor: Colors.white,
                       color: Colors.black,
+                      fontSize: 16
                     ),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       labelText: 'Pet Name',
                     ),
-                  ),a
+                  ),
                 ),
                 Card(
                   child: TextField(
