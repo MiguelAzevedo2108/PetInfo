@@ -18,33 +18,38 @@ class _MyHomePageState extends State<MyHomePage> {
         Center(
           child: Image.asset("assets/images/homePage.jpeg"),
         ),
-        TextButton(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Colors.blueAccent)),
+        Row(
+          children: <Widget>[
+            TextButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      side: BorderSide(color: Colors.blueAccent)),
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => CreatePetPage()));
+              },
+              child: Text("Add Pet"),
             ),
-          ),
-          onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => CreatePetPage()));
-          },
-          child: Text("Add Pet"),
-        ),
-        TextButton(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Colors.blueAccent)),
+            TextButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      side: BorderSide(color: Colors.blueAccent)),
+                ),
+              ),
+              onPressed: () {
+                //Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreatePetPage()));
+              },
+              child: Text("View Pets"),
             ),
-          ),
-          onPressed: () {
-            //Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreatePetPage()));
-          },
-          child: Text("View Pets"),
+          ],
         ),
+
       ],
     );
   }
