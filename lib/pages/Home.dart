@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Pet.dart';
+import 'CreatePetPage.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -18,17 +19,33 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Image.asset("assets/images/homePage.jpeg"),
         ),
         TextButton(
-          style: TextButton.styleFrom(
-            primary: Colors.blue,
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.blueAccent)),
+            ),
           ),
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyPet()));
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => CreatePetPage()));
           },
-          child: Text("Click Me"),
+          child: Text("Add Pet"),
+        ),
+        TextButton(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.blueAccent)),
+            ),
+          ),
+          onPressed: () {
+            //Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreatePetPage()));
+          },
+          child: Text("View Pets"),
         ),
       ],
     );
   }
 }
-
-

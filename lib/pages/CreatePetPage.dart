@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyPet extends StatefulWidget{
+class CreatePetPage extends StatefulWidget{
   @override
-  State<MyPet> createState() => _MyPetState();
+  State<CreatePetPage> createState() => _CreatePetPageState();
 }
 
-class _MyPetState extends State<MyPet>{
+class _CreatePetPageState extends State<CreatePetPage>{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
