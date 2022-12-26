@@ -57,6 +57,7 @@ class _CreatePetPageState extends State<CreatePetPage> {
           child: Icon(Icons.add),
           onPressed: () {
             Pet pet = Pet(name: petNameController.text, type: Type.cat, race: "test");
+
             Navigator.pop(context);
           },
         ),
