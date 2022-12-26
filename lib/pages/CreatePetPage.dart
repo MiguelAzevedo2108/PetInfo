@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:petinfo/pages/Home.dart';
+import 'package:petinfo/entities/Pet.dart';
+import 'package:petinfo/entities/Type.dart';
 
 class CreatePetPage extends StatefulWidget {
   @override
@@ -8,7 +9,14 @@ class CreatePetPage extends StatefulWidget {
 }
 
 class _CreatePetPageState extends State<CreatePetPage> {
+  final TextEditingController petNameController = TextEditingController();
   @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    petNameController.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -17,9 +25,10 @@ class _CreatePetPageState extends State<CreatePetPage> {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const <Widget>[
+          children: <Widget>[
             Card(
               child: TextField(
+                controller: petNameController,
                 style: TextStyle(
                     backgroundColor: Colors.white,
                     color: Colors.black,
@@ -47,6 +56,7 @@ class _CreatePetPageState extends State<CreatePetPage> {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
+            Pet pet = Pet(name: petNameController.text, type: Type.cat, race: "test");
             Navigator.pop(context);
           },
         ),
