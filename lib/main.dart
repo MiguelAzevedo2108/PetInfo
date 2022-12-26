@@ -16,12 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("PetInfo"),
-        ),
-        body: const MyHomePage(),
-      ),
+      home: const MyHomePage()
     );
   }
 }
