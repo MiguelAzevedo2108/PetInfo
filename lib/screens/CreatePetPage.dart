@@ -18,8 +18,7 @@ class _CreatePetPageState extends State<CreatePetPage> {
   }
 
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text("Pet Information"),
         ),
@@ -61,7 +60,6 @@ class _CreatePetPageState extends State<CreatePetPage> {
             Navigator.pop(context);
           },
         ),
-      ),
     );
   }
 }
