@@ -1,6 +1,7 @@
 import 'package:petinfo/entities/Type.dart';
 
-class Pet{
+class Pet {
+  String username = "";
   String name;
   Type type;
   String race;
