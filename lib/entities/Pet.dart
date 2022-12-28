@@ -1,10 +1,11 @@
 import 'package:petinfo/entities/Type.dart';
+import 'User.dart';
 
 class Pet {
-  String username = "";
+  User user;
   String name;
   Type type;
   String race;
 
-  Pet({required this.name, required this.type, required this.race});
+  Pet(this.user, this.name, this.type, this.race);
 }
