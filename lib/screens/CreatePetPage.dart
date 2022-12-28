@@ -1,15 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:petinfo/entities/Pet.dart';
 import 'package:petinfo/entities/Type.dart';
 
 class CreatePetPage extends StatefulWidget {
+  const CreatePetPage({super.key});
+
   @override
   State<CreatePetPage> createState() => _CreatePetPageState();
 }
 
 class _CreatePetPageState extends State<CreatePetPage> {
   final TextEditingController petNameController = TextEditingController();
+  Type type = Type.Turtle;
 
   @override
   void dispose() {
@@ -18,6 +20,7 @@ class _CreatePetPageState extends State<CreatePetPage> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -25,21 +28,43 @@ class _CreatePetPageState extends State<CreatePetPage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+
         children: <Widget>[
+          DropdownButton(
+            value: type,
+            items: Type.values
+                .map((type) => DropdownMenuItem(
+              value: type,
+              child: Text(
+                type.name,
+                style: const TextStyle(
+                  color: Colors.teal,
+                ),
+              ),
+            ))
+                .toList(),
+            borderRadius: BorderRadius.circular(20),
+            onChanged: (Type? newType) {
+              setState(() {
+                type = newType!;
+              });
+            },
+          ),
           Card(
             child: TextField(
               controller: petNameController,
-              style: TextStyle(
+              style: const TextStyle(
                   backgroundColor: Colors.white,
                   color: Colors.black,
                   fontSize: 16),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 labelText: 'Pet Name',
               ),
             ),
           ),
-          Card(
+          const Card(
             child: TextField(
               style: TextStyle(
                 backgroundColor: Colors.white,
@@ -54,11 +79,8 @@ class _CreatePetPageState extends State<CreatePetPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
-          Pet pet =
-              Pet(name: petNameController.text, type: Type.cat, race: "test");
-
           Navigator.pop(context);
         },
       ),
