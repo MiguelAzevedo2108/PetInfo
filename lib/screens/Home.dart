@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../entities/Pet.dart';
+import '../entities/Type.dart';
+
 import 'CreatePetPage.dart';
+import 'PetPage.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -47,7 +51,13 @@ class _HomeState extends State<Home> {
                 ),
               ),
               onPressed: () {
-                //Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreatePetPage()));
+                List<Pet> list = [];
+                Pet p = Pet("princess", Type.Cat,"europium");
+                Pet p1 = Pet("fred", Type.Dog,"husky");
+
+                list.add(p);
+                list.add(p1);
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => PetPage(list)));
               },
               child: Text("View Pets"),
             ),

@@ -11,12 +11,15 @@ class CreatePetPage extends StatefulWidget {
 
 class _CreatePetPageState extends State<CreatePetPage> {
   final TextEditingController petNameController = TextEditingController();
+  final TextEditingController petRaceController = TextEditingController();
+
   Type type = Type.Turtle;
 
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
     petNameController.dispose();
+    petRaceController.dispose();
     super.dispose();
   }
 
@@ -28,9 +31,17 @@ class _CreatePetPageState extends State<CreatePetPage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-
         children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: TextField(
+              controller: petNameController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Pet Name',
+              ),
+            ),
+          ),
           DropdownButton(
             value: type,
             items: Type.values
@@ -51,31 +62,17 @@ class _CreatePetPageState extends State<CreatePetPage> {
               });
             },
           ),
-          Card(
+          Container(
+            padding: const EdgeInsets.all(10),
             child: TextField(
               controller: petNameController,
-              style: const TextStyle(
-                  backgroundColor: Colors.white,
-                  color: Colors.black,
-                  fontSize: 16),
               decoration: const InputDecoration(
-                border: InputBorder.none,
-                labelText: 'Pet Name',
-              ),
-            ),
-          ),
-          const Card(
-            child: TextField(
-              style: TextStyle(
-                backgroundColor: Colors.white,
-                color: Colors.black,
-              ),
-              decoration: InputDecoration(
-                border: InputBorder.none,
+                border: OutlineInputBorder(),
                 labelText: 'Race',
               ),
             ),
           ),
+
         ],
       ),
       floatingActionButton: FloatingActionButton(
