@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import '../entities/Pet.dart';
 
 class PetPage extends StatelessWidget {
-
   final List<Pet> myPets;
 
   const PetPage(this.myPets, {super.key});
-
+//TODO escrever funcao para gerar N cards de accordo com o size da lista e passar no body
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class PetPage extends StatelessWidget {
         title: Text("My pets"),
       ),
       body: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount: 10,
         children: List.generate(
           myPets.length,
           (index) => Card(
@@ -26,5 +25,5 @@ class PetPage extends StatelessWidget {
         ),
       ),
     );
-}
+  }
 }
