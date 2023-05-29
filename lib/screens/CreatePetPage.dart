@@ -10,6 +10,14 @@ class CreatePetPage extends StatefulWidget {
 
 class _CreatePetPageState extends State<CreatePetPage> {
   final TextEditingController petNameController = TextEditingController();
+  final List<Type> petTypes = [
+    Type.dog,
+    Type.cat,
+    Type.turtle,
+    Type.bunny
+  ];
+
+  Type? petType;
 
   @override
   void dispose() {
@@ -18,6 +26,7 @@ class _CreatePetPageState extends State<CreatePetPage> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -39,18 +48,27 @@ class _CreatePetPageState extends State<CreatePetPage> {
               ),
             ),
           ),
-          Card(
-            child: TextField(
-              style: TextStyle(
-                backgroundColor: Colors.white,
-                color: Colors.black,
-              ),
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                labelText: 'Race',
-              ),
+          DropdownButton(
+            hint: const Text(
+              'Select Type'
             ),
-          ),
+            items: petTypes
+                .map((type) => DropdownMenuItem<Type>(
+              value: type,
+              child: Text(
+                type.name.toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            )).toList(),
+            value: petType,
+            onChanged: (value){
+              setState(() {
+                petType = value as Type;
+              });
+            },
+            ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

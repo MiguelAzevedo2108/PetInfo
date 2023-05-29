@@ -12,7 +12,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
 
-  Map<String, String> users = Map();
+  Map<String, String> users = {};
 
   bool loginChecker(String username, String password) {
     if (username.isNotEmpty && password.isNotEmpty) {
@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pet Information"),
+        title: const Text("Pet Information"),
       ),
       body: Container(
         alignment: AlignmentDirectional.center,
@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
